@@ -6,12 +6,15 @@ const restartButton = document.getElementById("restart-button");
 const timerElement = document.getElementById("timer");
 const nextPieceElement = document.getElementById("next-piece");
 let timerInterval;
+const volu = document.getElementById("volu");
+
 // Variable para almacenar el color del tetrimino actual
 let currentTetriminoColor;
+//
 const ROW = 20;
 const COL = COLUMN = 10;
 const SQ = squareSize = 20;
-const VACANT = "WHITE";
+const VACANT = "BLACK";
 
 function drawSquare(x, y, color) {
     ctx.fillStyle = color;
@@ -156,10 +159,10 @@ Piece.prototype.lock = function () {
                     gameOver = true;
                     stopTimer();
                     Swal.fire({
-                        title: `Game Over!\n Puntaje: ${score} \nTiempo:${
-      timerElement.textContent
+                        title: `Game Over!\n Puntaje: ${score} \nTiempo:${timerElement.textContent
 
-                        }`,
+
+                            }`,
                         text: "¿Quieres volver a jugar?",
                         icon: "error",
                         showCancelButton: true,
@@ -174,6 +177,8 @@ Piece.prototype.lock = function () {
                             resetGame();
                         } else {
                             restartButton.style.display = "block";
+                            audioElement.pause();
+
                         }
                     });
                     return;
@@ -288,8 +293,6 @@ function startGame() {
     currentTetriminoColor = p.color;
     displayPlayers(0, currentTetriminoColor);
 
-
-
 }
 
 function resetGame() {
@@ -305,6 +308,7 @@ function resetGame() {
     drawBoard();
     scoreElement.innerHTML = score;
 
+
     if (gameOver && !confirm("¿Quieres volver a jugar?")) {
         restartButton.style.display = "block";
         return;
@@ -316,7 +320,6 @@ function resetGame() {
     drop();
     mostrarSiguientePieza();
     displayPlayers(0);
-
 }
 
 function mostrarSiguientePieza() {
@@ -349,7 +352,6 @@ document.getElementById("start-button").addEventListener("click", function () {
 restartButton.addEventListener("click", function () {
     resetGame();
 });
-
 
 //CAMBIO
 
@@ -384,6 +386,7 @@ function reproducirAudioAleatorio() {
     // Detén la reproducción si ya hay un audio reproduciéndose
     audioElement.pause();
 
+
     // Selecciona aleatoriamente una URL de audio del array
     const randomIndex = Math.floor(Math.random() * audioURLs.length);
     const randomAudioURL = audioURLs[randomIndex];
@@ -398,12 +401,18 @@ function reproducirAudioAleatorio() {
 // Función para ajustar el volumen
 function ajustarVolumen(valor) {
     audioElement.volume = valor;
+    if (audioElement.volume == 0) {
+        volu.src = 'app/src/imagen/vol-bajo.PNG';
+    } else {
+        volu.src = 'app/src/imagen/vol.PNG';
+    }
 }
 
 // Función para reproducir el audio de "Game Over"
 function reproducirAudioGameOver() {
     // Detén la reproducción si ya hay un audio reproduciéndose
     audioElement.pause();
+
 
     // Obtén la URL del audio de "Game Over"
     const gameOverAudioURL = "./app/src/sonidos/Tetris (Tengen) (NES) Music - Game Over.mp3";
@@ -413,11 +422,12 @@ function reproducirAudioGameOver() {
 
     // Reproduce el audio
     audioElement.play();
-}
 
+}
 
 // Función para reproducir el audio de "Tetris (Game Boy) Line Clear"
 function reproducirAudioLineClear() {
+
 
     // Obtén la URL del audio de "Tetris (Game Boy) Line Clear"
     const lineClearAudioURL = "./app/src/sonidos/Tetris (Game Boy) Line Clear.mp3";
@@ -430,16 +440,57 @@ function reproducirAudioLineClear() {
 }
 
 // CAMBIO
-function openModal(){
+function openModal() {
     var modal = document.getElementById('modal');
     modal.style.display = 'block';
 }
+
+function openModal2() {
+    var modal2 = document.getElementById('modal2');
+    modal2.style.display = 'block';
+}
 // CAMBIO
-function closeModal(){
+function closeModal() {
     var modal = document.getElementById('modal');
     modal.style.display = 'none';
 }
+
+function closeModal2() {
+    var modal2 = document.getElementById('modal2');
+    modal2.style.display = 'none';
+}
+
+let currentPage = 1;
+const totalPages = 3;
+
+function showPage(pageNumber) {
+    for (let i = 1; i <= totalPages; i++) {
+        const page = document.getElementById('page' + i);
+        if (i === pageNumber) {
+            page.classList.add('active');
+        } else {
+            page.classList.remove('active');
+        }
+    }
+}
+
+function nextPage() {
+    if (currentPage < totalPages) {
+        currentPage++;
+        showPage(currentPage);
+    }
+}
+
+function prevPage() {
+    if (currentPage > 1) {
+        currentPage--;
+        showPage(currentPage);
+    }
+}
+showPage(currentPage);
+
+
 // CAMBIO
-document.getElementById('restart-button').addEventListener('click', function() {
+document.getElementById('restart-button').addEventListener('click', function () {
     location.reload();
-  });
+});

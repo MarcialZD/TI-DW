@@ -10,22 +10,9 @@
 
 <body>
 
-    <form id="login-form">
-            <div class="titular"><h2 class=" titulo">Tetris UCH </h2><img class="nameimg"src="./app/src/imagen/uch.png"></div>
-     <div class="datos">
-        <div>
-            <label for="username">Nombre de Usuario:</label>
-            <input type="text" id="username" name="username" required autocomplete="off">
-        </div>
-        <div>
-            <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" required autocomplete="off">
-        </div>
-    </div>
-        <button type="button" id="login-button">Iniciar Sesión</button>
-    </form>
-
-    <div id="copy">&copy; Todos los derechos reservados</div>
+    <main>
+        <section id="container"></section>
+    </main>
  
 </body>
 
@@ -34,7 +21,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 <script src="app/jquery.js"></script>
-<script src="app/myapp.js">
+<script type="module" src="app/myapp.js">
 </script>
 <script>
  const copyMessage = document.getElementById("copy");

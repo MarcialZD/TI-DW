@@ -10,10 +10,9 @@
 
 <body>
   <!-- CAMBIO -->
-  <div class="img-container" onclick="openModal()">
-    <img id="open-modal-img" src="app/src/imagen/configuracion.png" alt="Configuración">
-    <img id="open-modal-help-img" src="app/src/imagen/ayuda.png" alt="Configuración">
-
+  <div class="img-container">
+    <img id="open-modal-img" src="app/src/imagen/configuracion.png" alt="Configuración" onclick="openModal()">
+    <img id="open-modal-help-img" src="app/src/imagen/ayuda.png" alt="Configuración" onclick="openModal2()">
   </div>
 
   <!-- CAMBIO -->
@@ -51,17 +50,52 @@
   <div id="app">
     <p>{{ mensaje }}</p>
 </div>
-
-  <!-- CAMBIO -->
+l
   <div id="modal" class="modal">
     <div class="modal-content">
       <button class="close-btn" onclick="closeModal()">X</button>
+      <div class="cont-mod">
+      <img id="volu" src="app/src/imagen/vol.PNG" class="vol">
       <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="1">
+      
+     
+      </div>
+      <button id="cerrarSesion">Cerrar Sesión</button>
+      </div>
+      
     </div>
 
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+          <button class="close-btn" onclick="closeModal2()">X</button>
+          <div class="page active" id="page1">
+              <h2>¿Cómo jugar?</h2>
+              <img class="img-m2" src="app/src/imagen/p1.PNG">
+              <p>Empezarán a caer figuras que podrás girar o mover.</p>
+              <button onclick="nextPage()">Next</button>
+          </div>
+          <div class="page" id="page2">
+              <h2>¿Cómo jugar?</h2>
+              <img  class="img-m2" src="app/src/imagen/p2.PNG">
+              <p>Deberás tratar de girarlas o moverlas a conveniencia para completar una fila.</p>
+              <button onclick="prevPage()">Previous</button>
+              <button onclick="nextPage()">Next</button>
+          </div>
+          <div class="page" id="page3">
+              <h2>¿Cómo jugar?</h2>
+              <img  class="img-m2" src="app/src/imagen/p3.PNG">
+              <p>Al completar una fila, obtendrás 10 puntos. El juego te notificará cada que superes a un jugador 
+                en puntaje.
+              </p>
+              <button onclick="prevPage()">Previous</button>
+          </div>
+      </div>
   </div>
+  
+  
 
-  <button id="cerrarSesion">Cerrar Sesión</button>
+
+
 
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,19 +105,15 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
   <script src="app/tetrominoes.js"></script>
   <script src="app/tetris.js"></script>
-  <script src="app/myapp.js"></script>
-  <script src="app/gestion_players.js"></script>
+  <script  src="app/gestion_players.js"></script>
+
   <script src="app/vue.js"></script>
   <script>
-    //verificación
     function verificarLocalStorage() {
-      var paginaActual = window.location.pathname; // Obtiene la ruta de la página actual
+      var paginaActual = window.location.pathname;
 
-      // Verifica si estamos en un archivo .html
       if (paginaActual.endsWith("tetris.html")) {
-        // Verifica si el elemento está presente en localStorage
         if (!localStorage.getItem("userId")) {
-          // Si no está presente, redirecciona a login.html
           window.location.href = "index.html";
         }
       } else {
@@ -92,16 +122,12 @@
     }
     verificarLocalStorage();
     function cerrarSesion() {
-      // Elimina el elemento "userId" del localStorage
       localStorage.removeItem("userId");
-      // Redirecciona a la página de inicio de sesión
       window.location.href = "index.html";
     }
 
-    // Obtener referencia al botón
     var botonCerrarSesion = document.getElementById("cerrarSesion");
 
-    // Agregar evento de clic al botón
     botonCerrarSesion.addEventListener("click", cerrarSesion);
   </script>
 </body>

@@ -1,0 +1,11 @@
+{
+    "status": 200,
+    "token": "knsdfnslkf4252twsts",
+    "usuarios": [
+        { "id": 1, "name": "angelo", "score": 70, "password": "123" },
+        { "id": 2, "name": "miguel", "score": 40, "password": "456" },
+        { "id": 3, "name": "marcial", "score": 30, "password": "789" },
+        { "id": 4, "name": "cristhian", "score": 20, "password": "987" }
+    ]
+    
+}
