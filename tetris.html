@@ -20,6 +20,7 @@
   <audio id="audio" src=""></audio>
 
   <div class="container-wrapper">
+
     <div class="container">
       <canvas id="tetris" width="200" height="400"></canvas>
       <div class="controls">
@@ -47,7 +48,9 @@
     </div>
   </div>
   </div>
-
+  <div id="app">
+    <p>{{ mensaje }}</p>
+</div>
 
   <!-- CAMBIO -->
   <div id="modal" class="modal">
@@ -55,7 +58,9 @@
       <button class="close-btn" onclick="closeModal()">X</button>
       <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="1">
     </div>
+
   </div>
+
   <button id="cerrarSesion">Cerrar Sesión</button>
 
 
@@ -63,10 +68,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
   <script src="app/tetrominoes.js"></script>
   <script src="app/tetris.js"></script>
   <script src="app/myapp.js"></script>
   <script src="app/gestion_players.js"></script>
+  <script src="app/vue.js"></script>
   <script>
     //verificación
     function verificarLocalStorage() {
