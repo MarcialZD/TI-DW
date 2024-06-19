@@ -29,6 +29,11 @@ $(document).ready(function() {
             });
         } else {
             errorMessage.css("display", "block");
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Error al ingresar!',
+            });
         }
     });
 });
