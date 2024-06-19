@@ -39,18 +39,4 @@ $(document).ready(function() {
 });
 
 
-// CAMBIO
-function openModal(){
-    var modal = document.getElementById('modal');
-    modal.style.display = 'block';
-}
-// CAMBIO
-function closeModal(){
-    var modal = document.getElementById('modal');
-    modal.style.display = 'none';
-}
-// CAMBIO
-document.getElementById('restart-button').addEventListener('click', function() {
-    location.reload();
-  });
 
