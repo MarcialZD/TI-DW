@@ -5,14 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tetris</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="app/src/css/style.css">
 </head>
 
 <body>
   <!-- CAMBIO -->
   <div class="img-container" onclick="openModal()">
-    <img id="open-modal-img" src="configuracion.png" alt="Configuración">
-    <img id="open-modal-help-img" src="ayuda.png" alt="Configuración">
+    <img id="open-modal-img" src="app/src/imagen/configuracion.png" alt="Configuración">
+    <img id="open-modal-help-img" src="app/src/imagen/ayuda.png" alt="Configuración">
 
   </div>
 
@@ -63,10 +63,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-  <script src="tetrominoes.js"></script>
-  <script src="tetris.js"></script>
-  <script src="myapp.js"></script>
-  <script src="gestion_players.js"></script>
+  <script src="app/tetrominoes.js"></script>
+  <script src="app/tetris.js"></script>
+  <script src="app/myapp.js"></script>
+  <script src="app/gestion_players.js"></script>
   <script>
     //verificación
     function verificarLocalStorage() {

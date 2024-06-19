@@ -8,22 +8,26 @@ let players = [
 
 $(document).ready(function() {
     $("#login-button").click(function(event) {
-        var username = $("#username").val();
-        var password = $("#password").val();
-        var errorMessage = $("#error-message");
+        let username = $("#username").val();
+        let password = $("#password").val();
+        let errorMessage = $("#error-message");
 
         // Comprobar si las credenciales coinciden con algún jugador
-        var player = players.find(function(player) {
+        let player = players.find(function(player) {
             return player.name === username && player.password === password;
         });
 
         if (player) {
-            // Guardar el ID del usuario en localStorage
             localStorage.setItem("userId", player.id);
-            // Si las credenciales coinciden, redirigir a index.html
-            window.location.href = "tetris.html";
+        
+            Swal.fire({
+                title: '¡Bienvenido!',
+                text: 'Redirigiendo a Tetris...',
+                icon: 'success'
+            }).then(() => {
+                window.location.href = "tetris.html";
+            });
         } else {
-            // Si las credenciales son incorrectas, mostrar mensaje de error
             errorMessage.css("display", "block");
         }
     });

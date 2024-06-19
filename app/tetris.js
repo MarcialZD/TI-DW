@@ -355,10 +355,10 @@ restartButton.addEventListener("click", function () {
 
 // Define las URL de los archivos de audio
 const audioURLs = [
-    "Tetris (Tengen) (NES) Music - Level Up Dancers.mp3",
-    "Original Tetris theme.mp3",
-    "Tetris (Tengen) (NES) Music - Troika.mp3",
-    "Tetris (Tengen) (NES) Music - Bradinsky.mp3"
+    "./app/src/sonidos/Tetris (Tengen) (NES) Music - Level Up Dancers.mp3",
+    "./app/src/sonidos/Original Tetris theme.mp3",
+    "./app/src/sonidos/Tetris (Tengen) (NES) Music - Troika.mp3",
+    "./app/src/sonidos/Tetris (Tengen) (NES) Music - Bradinsky.mp3"
 ];
 
 // Obtén el botón de reproducir música, la barra de sonido y el elemento de audio
@@ -406,7 +406,7 @@ function reproducirAudioGameOver() {
     audioElement.pause();
 
     // Obtén la URL del audio de "Game Over"
-    const gameOverAudioURL = "Tetris (Tengen) (NES) Music - Game Over.mp3";
+    const gameOverAudioURL = "./app/src/sonidos/Tetris (Tengen) (NES) Music - Game Over.mp3";
 
     // Establece la URL en el elemento de audio
     audioElement.src = gameOverAudioURL;
@@ -420,7 +420,7 @@ function reproducirAudioGameOver() {
 function reproducirAudioLineClear() {
 
     // Obtén la URL del audio de "Tetris (Game Boy) Line Clear"
-    const lineClearAudioURL = "Tetris (Game Boy) Line Clear.mp3";
+    const lineClearAudioURL = "./app/src/sonidos/Tetris (Game Boy) Line Clear.mp3";
 
     // Establece la URL en el elemento de audio
     audioElement.src = lineClearAudioURL;
